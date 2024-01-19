@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+    <title>Admin Login Page</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script>
+		 function val(v)
+            {
+                document.getElementById(v).innerHTML="";
+            }
+		 function validation()
+            {
+                var flag=true;
+                var name2=document.regForm.sname.value;
+                var email2=document.regForm.smail.value;
+                var pass2=document.regForm.password.value;   
+                var name_pattern=/^[a-zA-Z]{3,30}$/;
+                var email_pattern = /^([a-zA-Z0-9])(([a-zA-Z0-9])*([\._\+-])*([a-zA-Z0-9]))*@(([a-zA-Z0-9\-])+(\.))+([a-zA-Z]{2,4})+$/;
+                if(!name2.match(name_pattern))
+                {
+                    document.getElementById('name_error').innerHTML="Name is not properly formated";
+                    flag=false;
+                }
+                if(name2==="")
+                {
+                    document.getElementById('name_error').innerHTML="Name cannot be empty";
+                    flag=false;
+                }
+                if(!email2.match(email_pattern))
+                {
+                    document.getElementById('email_error').innerHTML="Email is not properly formatted";
+                    flag=false;
+                }
+                if(email2==="")
+                {
+                    document.getElementById('email_error').innerHTML="Email cannot be empty";
+                    flag=false;
+                }
+                if(pass2==="")
+                {
+                    document.getElementById('password_error').innerHTML="Password cannot be empty";
+                    flag=false;
+                }
+                
+                return flag;  
+            }
+            
+	</script>
+</head>
+
+<body style="background-color:darkcyan">
+<div class="header" style="background-color:forestgreen">
+  <img src="images/logo.png" style="width:100px;height:100px; float: left;">
+  <div class="header-right">
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <a href="Register.html">Register</a>
+    </div>
+    <div class="dropdown">
+	 <a class="active">Login</a class="active"><br><br>
+	 <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="LoginStudent.html">Student</a>
+        <a href="LoginAdmin.html">Admin</a>
+      </div>
+      
+
+    </div>  
+    <a href="Aboutus.html">About Us</a>
+  </div>
+  <marquee scrollamount="30"><h1 style="color:cyan;">Login As Admin</h1></marquee>
+</div>
+<div style="padding: 10% 37%;">
+ 
+  <form method="post" name="regForm" onsubmit="return validation()" action="ccc">
+	  <table>
+		  <tr>
+			  <th>Enter Name:</th>
+			  <td>
+				  <input type=text placeholder="Name" name="sname"onkeyup="val('name_error')"/><br><span id="name_error" style="color: red"> </span> 
+			  </td>
+		  </tr>
+		  <tr>
+			  <td></td>
+			  <td></td>
+		  </tr>
+		  <tr>
+			   <th>Enter Email:</th>
+			  <td>
+				  <input type="email" placeholder="Email" name="smail"name="smail"onkeyup="val('email_error')"/><br><span id="email_error" style="color: red"></span>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td></td>
+			  <td></td>
+		  </tr>
+		  <tr>
+			 
+				  <th>
+					  Enter Admin Password:
+				  </th>
+				  <td>
+					  <input type="password" placeholder="Password" name="password" onkeyup="val('password_error')"/><br><span id="password_error" style="color: red"></span>
+				  </td>
+			  
+		  </tr>
+		  <tr>
+			  <td></td>
+			  <td></td>
+		  </tr>
+		  <tr>
+			  <th></th>
+			  <td colspan="2"> <input type="submit" value="Submit">
+			  <input type="reset" value="Reset">
+			  </td>
+			 
+		  </tr>
+	  </table>
+
+  </form>
+</div>
+
+</body>
+</html>
+
+
+
